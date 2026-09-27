@@ -4,12 +4,13 @@
 }
 
 .bio__heading {
+  font-family: var(--font-family-roboto-slab);
   font-size: var(--font-size-70);
   font-weight: var(--font-weight-bold);
 }
 
 .bio__objective {
-  font-family: var(--font-family-poppins);
+  font-family: var(--font-family-roboto-mono);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-20);
   margin: 3rem 0;
