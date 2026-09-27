@@ -1,0 +1,82 @@
+header.section-whith-bg {
+  position: sticky;
+  top: 0;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.navigation__link:link {
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.navigation__link.is-active {
+  color: var(--color-nav-accent);
+  font-weight: var(--font-weight-bold);
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+  text-decoration: underline;
+}
+
+.navigation__list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.burger-menu__checkbox {
+  display: none;
+}
+
+/* toggle */
+
+.toggle {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.toggle__title {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-18);
+}
+
+.toggle__checkbox {
+  display: none;
+}
+
+.toggle__label {
+  display: block;
+  position: relative;
+  background-color: var(--color-black);
+  border-radius: 1.5rem;
+  width: 4.5rem;
+  height: 2.2rem;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  transition: 0.3s;
+}
+
+.toggle__label::after {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  display: block;
+  background-color: var(--color-white);
+  transition: 0.3s;
+}
+
+.toggle__checkbox:checked + .toggle__label {
+  background-color: var(--color-white);
+}
+
+.toggle__checkbox:checked + .toggle__label::after {
+  background-color: var(--color-green);
+  transform: translateX(2.1rem);
+}

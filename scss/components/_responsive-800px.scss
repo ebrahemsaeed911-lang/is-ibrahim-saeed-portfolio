@@ -1,0 +1,133 @@
+@media (max-width: 800px) {
+  .container {
+    row-gap: 8rem;
+  }
+
+  .section {
+    grid-template-columns: 1fr;
+  }
+
+  .bio__pic-content {
+    grid-row: 1;
+    justify-self: center;
+    margin-bottom: 4rem;
+  }
+
+  .skills__list {
+    font-size: var(--font-size-24);
+  }
+
+  .social {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 6rem;
+  }
+
+  .social__content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .contact__form {
+    grid-column: 1;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 500px) {
+  .heading1 {
+    font-size: var(--font-size-24);
+    margin: 2rem 0;
+  }
+
+  .heading2 {
+    font-size: var(--font-size-20);
+    margin: 2rem 0;
+  }
+
+  .heading3 {
+    font-size: var(--font-size-18);
+    margin: 2rem 0;
+  }
+
+  header.section-whith-bg {
+    padding: 0;
+  }
+
+  header::before {
+    z-index: 0;
+  }
+
+  .bio__pic {
+    width: 100%;
+  }
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.75rem;
+    z-index: 0;
+    align-self: center;
+  }
+
+  .burger-menu__checkbox:checked + .navigation {
+    top: 100%;
+    visibility: visible;
+    z-index: 1;
+  }
+
+  .burger-menu__bar {
+    height: 0.3rem;
+    width: 4.375rem;
+    background-color: var(--color-text);
+    transition: var(--transition-timing);
+  }
+
+  header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(1) {
+    transform: translateY(0.75rem) rotate(45deg);
+  }
+
+  header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  header:has(.burger-menu__checkbox:checked) .burger-menu__bar:nth-child(3) {
+    transform: translateY(-0.75rem) rotate(-45deg);
+  }
+
+  .navigation {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    margin-left: calc(50% - 50vw);
+    top: 0;
+    padding: 3rem 0;
+    border-bottom: 0.1rem solid var(--color-text);
+    z-index: -1;
+    visibility: hidden;
+    transition: var(--transition-timing);
+    background-color: var(--color-background);
+  }
+
+  .navigation__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .toggle {
+    padding: 3rem 0;
+    z-index: 1;
+  }
+
+  .projects__main {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+
+  .projects__data {
+    align-self: start;
+  }
+}

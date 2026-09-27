@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibrahim-Saeed__Message Sent</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="results-body">
+    <main class="results section-whith-bg">
+      <div class="results__card">
+        <h1 class="results__heading">Message Sent</h1>
+        <p class="results__text" id="results-text">
+          Thanks for reaching out. Here is what you sent — I will get back to
+          you soon.
+        </p>
+
+        <dl class="results__list">
+          <div class="results__row">
+            <dt class="results__key">Name</dt>
+            <dd class="results__value" id="results-name">&mdash;</dd>
+          </div>
+
+          <div class="results__row">
+            <dt class="results__key">Email</dt>
+            <dd class="results__value" id="results-email">&mdash;</dd>
+          </div>
+
+          <div class="results__row">
+            <dt class="results__key">Message</dt>
+            <dd class="results__value" id="results-message">&mdash;</dd>
+          </div>
+        </dl>
+
+        <a href="index.html#contact" class="results__link">Back to portfolio</a>
+      </div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const submitted = {
+        "results-name": params.get("name"),
+        "results-email": params.get("email"),
+        "results-message": params.get("message"),
+      };
+
+      const hasData = Object.values(submitted).some(Boolean);
+
+      if (hasData) {
+        for (const [id, value] of Object.entries(submitted)) {
+          if (value) {
+            document.getElementById(id).textContent = value;
+          }
+        }
+      } else {
+        document.getElementById("results-text").textContent =
+          "No message data found. Fill in the contact form to see it here.";
+      }
+
+      const contactForm = document.querySelector(".contact__form");
+
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const query = new URLSearchParams(new FormData(contactForm)).toString();
+        window.location.href = `results.html?${query}`;
+      });
+    </script>
+  </body>
+</html>

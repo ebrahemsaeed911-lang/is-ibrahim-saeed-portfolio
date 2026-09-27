@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio - HTML, SCSS, vanilla JS",
+  "scripts": {
+    "build": "sass scss/style.scss css/style.css --style=expanded",
+    "watch": "sass --watch scss/style.scss css/style.css --style=expanded",
+    "build:min": "sass scss/style.scss css/style.min.css --style=compressed",
+    "build:inline-map": "sass scss/style.scss css/style.css --style=expanded --embed-sources"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0"
+  }
+}

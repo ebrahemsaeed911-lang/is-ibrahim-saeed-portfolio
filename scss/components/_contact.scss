@@ -1,0 +1,126 @@
+/* contact */
+
+.social {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20rem;
+  align-items: start;
+}
+
+.social .heading2 {
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+.contact__form {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: start;
+}
+
+.contact__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  padding: 3rem;
+  background: none;
+  border: 0.1rem solid var(--color-input-border);
+  border-radius: 1.8rem;
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.contact__label {
+  display: block;
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact__input {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-18);
+  color: var(--color-text);
+  background: none;
+  border: 0.1rem solid var(--color-input-border);
+  border-radius: 0.5rem;
+  transition: var(--transition-timing);
+}
+
+.contact__input:focus {
+  outline: 0.2rem solid var(--color-grey);
+  outline-offset: 0.1rem;
+}
+
+.contact__submit {
+  width: 100%;
+  padding: 1.7rem 2rem;
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  background-color: var(--color-link-bg);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-timing);
+  z-index: 1;
+}
+
+.contact__submit:hover,
+.contact__submit:active,
+.contact__submit:focus-visible {
+  background-color: var(--color-grey);
+  color: var(--color-black);
+}
+
+.social__content {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.social__bio {
+  font-size: var(--font-size-40);
+  line-height: 1.7;
+}
+
+.email a {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.icon__svg {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+svg {
+  width: var(--svg-width);
+  height: var(--svg-height);
+  transition: var(--transition-timing);
+}
+
+svg:hover {
+  transform: scale(1.2);
+}
+
+/* end contact */

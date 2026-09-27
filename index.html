@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibrahim-Saeed__Front-End Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000000'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='40' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EIS%3C/text%3E%3C/svg%3E"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <video class="video__loop" autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="cursor-glow"></div>
+
+      <header class="header section-whith-bg">
+        <label class="burger-menu" for="menu">
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+        </label>
+        <input id="menu" class="burger-menu__checkbox" type="checkbox" />
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li><a href="#bio" class="navigation__link">Bio</a></li>
+            <li><a href="#header__skils" class="navigation__link">Skils</a></li>
+            <li><a href="#projects" class="navigation__link">Progects</a></li>
+            <li><a href="#clients" class="navigation__link">clients</a></li>
+            <li><a href="#contact" class="navigation__link">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="toggle">
+          <h3 class="toggle__title">Switch Theme</h3>
+          <input
+            type="checkbox"
+            name="toggle checkbox"
+            id="toggle"
+            class="toggle__checkbox"
+            checked
+          />
+          <label
+            for="toggle"
+            class="toggle__label toggle__label__dark toggle__label__light"
+          ></label>
+        </div>
+      </header>
+
+      <section id="bio" class="bio section">
+        <div class="bio__data">
+          <h1 class="bio__heading heading1">
+            HI THERE, I'M A PASSIONATE FRONT-END DEVELOPER
+          </h1>
+          <p class="bio__objective">
+            My name is <span class="bio__name">IBRAHIM SAEED</span>. I'm a
+            self-taught developer at the beginning of my programming journey.
+            I'm focused on learning front-end development while exploring
+            full-stack development through technologies like React, TypeScript,
+            Next.js, Node.js, SQL, and Supabase. I learn by building real
+            projects, experimenting with new technologies, and improving with
+            every project.
+          </p>
+          <a href="#contact" class="bio__links say-hi-link">Say Hi</a>
+          <a href="#" class="bio__links find-out-link"
+            >Download CV <span class="bio__arrow">⬇</span></a
+          >
+        </div>
+        <div class="bio__pic-content">
+          <img class="bio__pic" src="my-image.webp" alt="protfolio img" />
+        </div>
+      </section>
+
+      <section class="skills section-whith-bg" id="header__skils">
+        <h2 class="heading2">Skills</h2>
+        <ul class="skills__list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>React</li>
+          <li>javascript</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="projects">
+        <h2 class="heading2">
+          My Featured <br />
+          Projects
+        </h2>
+
+        <div class="projects__main">
+          <img
+            class="projects__img"
+            src="portfolio.webp"
+            alt="My Portfolio Project"
+            height="100%"
+          />
+          <div class="projects__data">
+            <h3 class="heading3">My Portfolio</h3>
+            <p class="projects__description">
+              A responsive landing page built with a focus on clean structure,
+              modern design, accessibility, and a consistent experience across
+              desktop and mobile devices.
+            </p>
+
+            <a href="#" class="projects__link">Chrome Link</a>
+            <span>-</span>
+            <a href="#" class="projects__link">Chrome Link</a>
+          </div>
+        </div>
+      </section>
+      <section id="clients" class="clients section-whith-bg">
+        <h2 class="heading2">
+          What My <br />
+          Clients Says
+        </h2>
+        <div class="clients__opinions">
+          <div class="clients__wrapper">
+            <p class="clients__opinion">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              distinctio voluptatum obcaecati assumenda autem accusantium
+              cumque, eveniet harum, repellat dicta quasi perferendis at tempora
+              dolorum totam est facere labore dolores.
+            </p>
+            <p class="clients__opinion">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+              veritatis dignissimos iure repudiandae. Dolore, similique amet ad
+              repudiandae nemo iure tempora libero vero consequatur provident
+              ratione quia odio soluta nihil.
+            </p>
+            <p class="clients__opinion">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Consequatur at molestiae nemo debitis suscipit cum officia
+              necessitatibus quasi perspiciatis, velit iste illum blanditiis eos
+              earum iure odit dicta! At, doloribus!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="social">
+        <h2 class="heading2">Lets build something together</h2>
+
+        <form class="contact__form" action="results.html" method="get">
+          <div class="contact__fields">
+            <div class="contact__field">
+              <label class="contact__label" for="contact-name">Name</label>
+              <input
+                class="contact__input"
+                type="text"
+                id="contact-name"
+                name="name"
+                value=""
+                placeholder="Your Name"
+                required
+              />
+            </div>
+
+            <div class="contact__field">
+              <label class="contact__label" for="contact-email">Email</label>
+              <input
+                class="contact__input"
+                type="email"
+                id="contact-email"
+                name="email"
+                value=""
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+
+            <div class="contact__field">
+              <label class="contact__label" for="contact-message"
+                >Message</label
+              >
+              <textarea
+                class="contact__input"
+                id="contact-message"
+                name="message"
+                rows="6"
+                placeholder="Write your message here..."
+                required
+              ></textarea>
+            </div>
+
+            <button
+              class="contact__submit"
+              type="submit"
+              name="submit"
+              value="send"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+
+        <div class="social__content">
+          <p class="social__bio">
+            Have a question, idea, or just want to say hello? Feel free to reach
+            out. I’m always happy to connect, share ideas, learn from others,
+            and have a good conversation.
+          </p>
+
+          <section class="email">
+            <a href="mailto:ibrahim.saeed.div@gmail.com">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Gmail</title>
+                <path
+                  d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                />
+              </svg>
+
+              <span>ibrahim.saeed.div@gmail.com</span>
+            </a>
+          </section>
+
+          <div class="icon__svg">
+            <a href="https://github.com/ebrahemsaeed911-lang" target="_blank">
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>GitHub</title>
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/ebrahim.saeed.87309"
+              target="_blank"
+            >
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Facebook</title>
+                <path
+                  d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ebrahem-saeed-960a14429/"
+              target="_blank"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>linkedin</title>
+                <path
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="footer">
+        <hr />
+        <footer>© 2026 Ibrahim Saeed</footer>
+      </section>
+    </div>
+
+    <script>
+      const navLinks = document.querySelectorAll(".navigation__link");
+
+      const navSections = Array.from(navLinks)
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      const setActiveLink = (id) => {
+        for (const link of navLinks) {
+          link.classList.toggle(
+            "is-active",
+            link.getAttribute("href") === `#${id}`,
+          );
+        }
+      };
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              setActiveLink(entry.target.id);
+            }
+          }
+        },
+        { rootMargin: "-40% 0px -40% 0px" },
+      );
+
+      for (const section of navSections) {
+        sectionObserver.observe(section);
+      }
+
+      const initialId = window.location.hash.slice(1);
+
+      setActiveLink(
+        navSections.some((section) => section.id === initialId)
+          ? initialId
+          : navSections[0].id,
+      );
+    </script>
+    <script src="cursor-glow.js"></script>
+  </body>
+</html>
