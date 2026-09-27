@@ -3,3 +3,26 @@
     font-size: 8px;
   }
 }
+
+/* ===== SMALL LAPTOP 801px - 1000px ===== */
+@media (min-width: 801px) and (max-width: 1000px) {
+  .bio__objective,
+  .bio__name,
+  .social__bio,
+  .clients__opinions {
+    font-size: 2.4rem;
+  }
+
+  .heading2 {
+    font-size: 5rem;
+  }
+
+  .heading3 {
+    font-size: 3rem;
+  }
+
+  .bio__heading,
+  .heading1 {
+    font-size: 5.6rem;
+  }
+}

@@ -39,6 +39,12 @@
   --font-size-18: 1.8rem;
   --font-size-15: 1.5rem;
 
+  /* mobile scale - keeps h1 > h2 > h3 hierarchy */
+  --font-size-m-h1: 3.2rem;
+  --font-size-m-h2: 2.6rem;
+  --font-size-m-h3: 2rem;
+  --font-size-m-body: 2rem;
+
   --transition-timing: 0.3s;
 
   --svg-height: 3.2rem;
