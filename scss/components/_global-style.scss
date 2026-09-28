@@ -1,7 +1,8 @@
+/* ---------- reveal keyframes ---------- */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
@@ -12,7 +13,7 @@
 @keyframes slideInFromLeft {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-55px);
   }
   to {
     opacity: 1;
@@ -20,75 +21,127 @@
   }
 }
 
-/* The bio sits at the top of the page, so a view() timeline finds it
-   already past its animation range the instant the page loads and never
-   plays. Give it a real time-based intro instead. */
-.bio {
-  animation: fadeUp 0.7s ease-out both;
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(55px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Only the portrait slides in here. The heading and the paragraph are
-   animated word-by-word by _line-reveal.scss, so a block animation on
-   .bio__data would fight it. */
-.bio__pic-content {
-  animation: slideInFromLeft 0.7s ease-out both;
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Each section is treated as 2-3 "parts". Part 1 rises, part 2 slides in
+   from the left, part 3 zooms in - so every part plays its own animation
+   rather than every part sliding the same way. The section itself does not
+   fade; its parts carry the reveal, which keeps a tall section from
+   finishing as one rigid block. */
+
+/* The bio sits at the top of the page, so a view() timeline finds it
+   already past its animation range the instant the page loads and never
+   plays. Give its parts a real time-based intro instead. Part 1 is the
+   text column (animated word-by-word by _line-reveal.scss, so it only fades
+   the block), part 2 is the portrait. */
+.bio > *:nth-child(1) {
+  animation: fadeUp 0.5s ease-out both;
+}
+
+.bio > *:nth-child(2) {
+  animation: slideInFromLeft 0.5s ease-out both;
   animation-delay: 0.15s;
 }
 
-/* Scroll-driven fade-in, one section at a time.
+/* Scroll-driven reveal, one independent animation per part.
    On a view() timeline the duration is ignored - scroll position drives
-   progress. The 30% is intentional: it finishes the fade early so a
-   section is fully opaque while still comfortably on screen.
+   progress. The percentages control when each part starts and finishes so
+   the parts arrive in sequence instead of all at once.
    Wrapped in @supports so browsers without view() (Firefox, older
    Safari) show the content immediately instead of hiding it. */
 @supports (animation-timeline: view()) {
-  .skills,
-  .projects,
-  .clients,
-  .social,
-  .email,
-  .footer {
+  /* :not() keeps the two grid cells that hold dense content out of the
+     block animation, otherwise they would fade as a whole on top of the
+     per-child animation applied further down. */
+  .skills > *,
+  .projects > *:not(.projects__main),
+  .clients > *:not(.clients__opinions),
+  .social > *,
+  .footer > * {
     animation: fadeUp linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 30%;
   }
 
-  /* Children slide in from the left, staggered so they arrive one after
-     another. The nth-child rules shift the range start by 6% each, which
-     delays the later children without a separate keyframe.
-     .bio is excluded: it animates on page load, not on scroll. */
-  .bio__pic-content,
-  .skills > *,
-  .projects > *,
-  .clients > *,
-  .social > *,
-  .email > *,
-  .footer > * {
-    animation: slideInFromLeft linear both;
+  /* .email holds a single <a> wrapping the icon and the address, so its two
+     parts are the link's children rather than the section's children. */
+  .email > a > * {
+    animation: fadeUp linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 25%;
   }
 
+  .email > a > *:nth-child(2) {
+    animation-name: slideInFromLeft;
+  }
+
+  /* part 1 - rise */
+  .skills > *:nth-child(1),
+  .projects > *:nth-child(1),
+  .clients > *:nth-child(1),
+  .social > *:nth-child(1),
+  .email > a > *:nth-child(1),
+  .footer > *:nth-child(1) {
+    animation-range: entry 0% cover 18%;
+  }
+
+  /* part 2 - slide in from the left */
   .skills > *:nth-child(2),
-  .projects > *:nth-child(2),
-  .clients > *:nth-child(2),
   .social > *:nth-child(2),
-  .email > *:nth-child(2),
+  .email > a > *:nth-child(2),
   .footer > *:nth-child(2) {
-    animation-range: entry 6% cover 31%;
+    animation-name: slideInFromLeft;
+    animation-range: entry 2% cover 24%;
   }
 
-  .bio__pic-content {
-    animation-range: entry 6% cover 31%;
-  }
-
+  /* part 3 - zoom in */
   .skills > *:nth-child(3),
-  .projects > *:nth-child(3),
   .clients > *:nth-child(3),
   .social > *:nth-child(3),
-  .email > *:nth-child(3),
   .footer > *:nth-child(3) {
-    animation-range: entry 12% cover 37%;
+    animation-name: zoomIn;
+    animation-range: entry 4% cover 30%;
+  }
+
+  /* .projects__main and .clients__opinions are single grid cells, so
+     animating the cell would move the image, the heading, the copy and the
+     link as one rigid block. Instead the image and the text are separate
+     parts, and the text children cascade after the image. */
+  .projects__img {
+    animation: slideInFromLeft linear both;
+    animation-timeline: view();
+    animation-range: entry 2% cover 24%;
+  }
+
+  .projects__data > *,
+  .clients__opinions > * {
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 4% cover 27%;
+  }
+
+  .projects__data > *:nth-child(n + 2),
+  .clients__opinions > *:nth-child(n + 2) {
+    animation-name: zoomIn;
+    animation-range: entry 6% cover 33%;
   }
 }
 

@@ -14,13 +14,13 @@
    otherwise the first paint would jump. */
 .reveal-ready .reveal-word {
   animation: lineIn 0.5s ease-out backwards;
-  animation-delay: calc(var(--line, 0) * 0.12s);
+  animation-delay: calc(var(--line, 0) * 0.0625s);
 }
 
 @keyframes lineIn {
   from {
     opacity: 0;
-    transform: translateY(0.35em);
+    transform: translateY(0.3em);
   }
 
   to {
