@@ -1,3 +1,97 @@
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* The bio sits at the top of the page, so a view() timeline finds it
+   already past its animation range the instant the page loads and never
+   plays. Give it a real time-based intro instead. */
+.bio {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+/* Only the portrait slides in here. The heading and the paragraph are
+   animated word-by-word by _line-reveal.scss, so a block animation on
+   .bio__data would fight it. */
+.bio__pic-content {
+  animation: slideInFromLeft 0.7s ease-out both;
+  animation-delay: 0.15s;
+}
+
+/* Scroll-driven fade-in, one section at a time.
+   On a view() timeline the duration is ignored - scroll position drives
+   progress. The 30% is intentional: it finishes the fade early so a
+   section is fully opaque while still comfortably on screen.
+   Wrapped in @supports so browsers without view() (Firefox, older
+   Safari) show the content immediately instead of hiding it. */
+@supports (animation-timeline: view()) {
+  .skills,
+  .projects,
+  .clients,
+  .social,
+  .email,
+  .footer {
+    animation: fadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  /* Children slide in from the left, staggered so they arrive one after
+     another. The nth-child rules shift the range start by 6% each, which
+     delays the later children without a separate keyframe.
+     .bio is excluded: it animates on page load, not on scroll. */
+  .bio__pic-content,
+  .skills > *,
+  .projects > *,
+  .clients > *,
+  .social > *,
+  .email > *,
+  .footer > * {
+    animation: slideInFromLeft linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+
+  .skills > *:nth-child(2),
+  .projects > *:nth-child(2),
+  .clients > *:nth-child(2),
+  .social > *:nth-child(2),
+  .email > *:nth-child(2),
+  .footer > *:nth-child(2) {
+    animation-range: entry 6% cover 31%;
+  }
+
+  .bio__pic-content {
+    animation-range: entry 6% cover 31%;
+  }
+
+  .skills > *:nth-child(3),
+  .projects > *:nth-child(3),
+  .clients > *:nth-child(3),
+  .social > *:nth-child(3),
+  .email > *:nth-child(3),
+  .footer > *:nth-child(3) {
+    animation-range: entry 12% cover 37%;
+  }
+}
+
 .section {
   display: grid;
   grid-template-columns: repeat(2, auto);
